@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="MidNight_Census" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="month" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="year" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     sum(midnight.`ANC`) AS ANC,
+     sum(midnight.`PNC`) AS PNC,
+     sum(midnight.`deli`) AS deli,
+     sum(midnight.`bady`) AS bady,
+     sum(midnight.`trans_IN`) AS trans_IN,
+     sum(midnight.`trans_OUT`) AS trans_OUT,
+     sum(midnight.`trans_other_hos`) AS trans_other_hos,
+     sum(midnight.`AMA`) AS AMA,
+     sum(midnight.`miss`) AS miss,
+     sum(midnight.`death`) AS death,
+     sum(midnight.`PDT`) AS PDT,
+     sum(midnight.`adm`) AS adm,
+     sum(midnight.`disch`) AS disch,
+     sum(midnight.`ttal`) AS ttal,
+     sum(midnight.`date`) AS date,
+     wards.`w_descriptn` AS wards_w_descriptn,
+     wards.`w_num` AS wards_w_num
+FROM
+     `wards` wards LEFT OUTER JOIN `midnight` midnight ON wards.`w_num` = midnight.`w_num`
+WHERE
+     YEAR(midnight.`date`) = $P{year}
+     and MONTH(midnight.`date`) = $P{month}
+GROUP BY
+     wards.`w_num`]]>
+	</queryString>
+	<field name="ANC" class="java.lang.Integer"/>
+	<field name="PNC" class="java.lang.Integer"/>
+	<field name="deli" class="java.lang.Integer"/>
+	<field name="bady" class="java.lang.Integer"/>
+	<field name="trans_IN" class="java.lang.Integer"/>
+	<field name="trans_OUT" class="java.lang.Integer"/>
+	<field name="trans_other_hos" class="java.lang.Integer"/>
+	<field name="AMA" class="java.lang.Integer"/>
+	<field name="miss" class="java.lang.Integer"/>
+	<field name="death" class="java.lang.Integer"/>
+	<field name="PDT" class="java.lang.Integer"/>
+	<field name="adm" class="java.lang.Integer"/>
+	<field name="disch" class="java.lang.Integer"/>
+	<field name="ttal" class="java.lang.Integer"/>
+	<field name="date" class="java.util.Date"/>
+	<field name="wards_w_descriptn" class="java.lang.String"/>
+	<field name="wards_w_num" class="java.lang.String"/>
+	<variable name="deli_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{deli}]]></variableExpression>
+	</variable>
+	<variable name="bady_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{bady}]]></variableExpression>
+	</variable>
+	<variable name="trans_IN_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{trans_IN}]]></variableExpression>
+	</variable>
+	<variable name="trans_OUT_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{trans_OUT}]]></variableExpression>
+	</variable>
+	<variable name="trans_other_hos_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{trans_other_hos}]]></variableExpression>
+	</variable>
+	<variable name="AMA_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{AMA}]]></variableExpression>
+	</variable>
+	<variable name="miss_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{miss}]]></variableExpression>
+	</variable>
+	<variable name="death_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{death}]]></variableExpression>
+	</variable>
+	<variable name="PDT_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{PDT}]]></variableExpression>
+	</variable>
+	<variable name="adm_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{adm}]]></variableExpression>
+	</variable>
+	<variable name="disch_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{disch}]]></variableExpression>
+	</variable>
+	<variable name="ttal_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{ttal}]]></variableExpression>
+	</variable>
+	<variable name="ANC_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{ANC}]]></variableExpression>
+	</variable>
+	<variable name="PNC_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{PNC}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="802" height="24"/>
+				<box>
+					<pen lineWidth="0.75"/>
+					<topPen lineWidth="0.75"/>
+					<leftPen lineWidth="0.75"/>
+					<bottomPen lineWidth="0.75"/>
+					<rightPen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Daily Mid Night Census]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="78" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="18"/>
+				<graphicElement>
+					<pen lineWidth="0.75"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="18" width="106" height="60"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Ward Nu.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="106" y="18" width="220" height="60"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Type of Ward]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="326" y="18" width="33" height="60"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Admissions]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="359" y="18" width="33" height="60"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Discharges]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="392" y="18" width="33" height="60"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Transfer In]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="425" y="18" width="33" height="60"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Transfer Out]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="458" y="18" width="33" height="60"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Transfered Out to Other Hospitals]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="491" y="18" width="33" height="60"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Deahts]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="524" y="18" width="33" height="60"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[AMAs]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="557" y="18" width="33" height="60"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Missings]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="590" y="18" width="33" height="60"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[ANC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="623" y="18" width="33" height="60"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[PNC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="656" y="18" width="33" height="60"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Babies]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="689" y="18" width="33" height="60"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Deliveries]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="722" y="18" width="80" height="60"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Total Inpatient Days]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="278" y="0" width="100" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Year : " +$P{year}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="523" y="0" width="100" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Month : " +$P{month}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="106" height="15"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#990033"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="106" y="0" width="220" height="15"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#990033"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="722" y="0" width="80" height="15"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#990033"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="326" y="0" width="33" height="15"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#990033"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="359" y="0" width="33" height="15"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#990033"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="392" y="0" width="33" height="15"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#990033"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="425" y="0" width="33" height="15"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#990033"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="458" y="0" width="33" height="15"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#990033"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="491" y="0" width="33" height="15"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#990033"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="524" y="0" width="33" height="15"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#990033"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="557" y="0" width="33" height="15"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#990033"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="590" y="0" width="33" height="15"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#990033"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="623" y="0" width="33" height="15"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#990033"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="656" y="0" width="33" height="15"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#990033"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="689" y="0" width="33" height="15"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#990033"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="0" y="0" width="106" height="14" forecolor="#000099"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{wards_w_num}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="106" y="0" width="220" height="14" forecolor="#000099"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{wards_w_descriptn}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="326" y="0" width="33" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{adm}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="359" y="0" width="33" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{disch}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="392" y="0" width="33" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{trans_IN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="425" y="0" width="33" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{trans_OUT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="458" y="0" width="33" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{trans_other_hos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="491" y="0" width="33" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{death}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="524" y="0" width="33" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{AMA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="557" y="0" width="33" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{miss}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="590" y="0" width="33" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{ANC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="623" y="0" width="33" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{PNC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="656" y="0" width="33" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{bady}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="689" y="0" width="33" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{deli}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="722" y="0" width="80" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{ttal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="7" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="23" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="326" height="15"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#990033"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="722" y="0" width="80" height="15"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#990033"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="326" y="0" width="33" height="15"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#990033"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="359" y="0" width="33" height="15"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#990033"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="392" y="0" width="33" height="15"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#990033"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="425" y="0" width="33" height="15"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#990033"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="458" y="0" width="33" height="15"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#990033"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="491" y="0" width="33" height="15"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#990033"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="524" y="0" width="33" height="15"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#990033"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="557" y="0" width="33" height="15"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#990033"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="590" y="0" width="33" height="15"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#990033"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="623" y="0" width="33" height="15"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#990033"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="656" y="0" width="33" height="15"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#990033"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="689" y="0" width="33" height="15"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#990033"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="106" y="0" width="200" height="14" forecolor="#000099"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Grand Total"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="326" y="0" width="33" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{adm_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="359" y="0" width="33" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{disch_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="392" y="0" width="33" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{trans_IN_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="425" y="0" width="33" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{trans_OUT_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="458" y="0" width="33" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{trans_other_hos_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="491" y="0" width="33" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{death_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="524" y="0" width="33" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{AMA_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="557" y="0" width="33" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{miss_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="590" y="0" width="33" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{ANC_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="623" y="0" width="33" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{PNC_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="656" y="0" width="33" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{bady_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="689" y="0" width="33" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{deli_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="722" y="0" width="80" height="14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{ttal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

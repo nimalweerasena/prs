@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="IMMR_100_R09_FinalSummary" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="821" leftMargin="14" rightMargin="7" topMargin="0" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="fs_item_A" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fs_item_B" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fs_item_C" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fs_item_D" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fs_item_E" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fs_item_F" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fs_item_G" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fs_item_H" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fs_item_I" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fs_item_J" class="java.lang.Integer"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["I:\\Developments\\NetBeansProjects\\prs\\Reports\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     deptinfo.`DEPCODE` AS deptinfo_DEPCODE,
+     deptinfo.`DEPNAME` AS deptinfo_DEPNAME,
+     deptinfo.`ADDRESS1` AS deptinfo_ADDRESS1,
+     deptinfo.`ADDRESS2` AS deptinfo_ADDRESS2,
+     deptinfo.`DISTRICT` AS deptinfo_DISTRICT,
+     deptinfo.`AGADIV` AS deptinfo_AGADIV,
+     deptinfo.`MOHDIV` AS deptinfo_MOHDIV,
+     deptinfo.`HEADOFNAME` AS deptinfo_HEADOFNAME,
+     deptinfo.`DESIGNATION` AS deptinfo_DESIGNATION,
+     deptinfo.`CONTACT` AS deptinfo_CONTACT
+FROM
+     `deptinfo` deptinfo]]>
+	</queryString>
+	<field name="deptinfo_DEPCODE" class="java.lang.String"/>
+	<field name="deptinfo_DEPNAME" class="java.lang.String"/>
+	<field name="deptinfo_ADDRESS1" class="java.lang.String"/>
+	<field name="deptinfo_ADDRESS2" class="java.lang.String"/>
+	<field name="deptinfo_DISTRICT" class="java.lang.String"/>
+	<field name="deptinfo_AGADIV" class="java.lang.String"/>
+	<field name="deptinfo_MOHDIV" class="java.lang.String"/>
+	<field name="deptinfo_HEADOFNAME" class="java.lang.String"/>
+	<field name="deptinfo_DESIGNATION" class="java.lang.String"/>
+	<field name="deptinfo_CONTACT" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="519">
+			<staticText>
+				<reportElement positionType="Float" x="200" y="0" width="391" height="29"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Final Summary]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement positionType="Float" x="303" y="29" width="26" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="303" y="49" width="26" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="303" y="69" width="26" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="303" y="89" width="26" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="303" y="109" width="26" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="303" y="169" width="26" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="303" y="209" width="26" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="303" y="129" width="26" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="303" y="189" width="26" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="303" y="149" width="26" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="303" y="229" width="26" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="330" y="29" width="393" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="330" y="49" width="393" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="330" y="69" width="393" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="330" y="89" width="393" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="330" y="109" width="393" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="330" y="169" width="393" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="330" y="209" width="393" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="330" y="129" width="393" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="330" y="189" width="393" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="330" y="149" width="393" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="330" y="229" width="393" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="725" y="29" width="56" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="725" y="49" width="56" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="725" y="69" width="56" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="725" y="89" width="56" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="725" y="109" width="56" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="725" y="169" width="56" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="725" y="209" width="56" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="725" y="129" width="56" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="725" y="189" width="56" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="725" y="149" width="56" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="725" y="229" width="56" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="303" y="29" width="26" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Item]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="303" y="69" width="26" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[B]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="303" y="49" width="26" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[A]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="303" y="89" width="26" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[C]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="303" y="109" width="26" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[D]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="303" y="129" width="26" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[E]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="303" y="149" width="26" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[F]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="303" y="169" width="26" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[G]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="303" y="189" width="26" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[H]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="303" y="209" width="26" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[I]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="303" y="229" width="26" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[J]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="330" y="29" width="393" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[Hospital Statistics]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="330" y="69" width="393" height="20"/>
+				<textElement>
+					<font fontName="Tahoma" size="8"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[Number of patients admitted during the quarter]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="330" y="49" width="393" height="20"/>
+				<textElement>
+					<font fontName="Tahoma" size="8"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[Number of patients remaining in the hospital at the beginning of the quarter]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="330" y="89" width="393" height="20"/>
+				<textElement>
+					<font fontName="Tahoma" size="8" isBold="false" isUnderline="false"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[Number of discharged alive from the hospital (Excluding the Transfers)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="330" y="109" width="393" height="20"/>
+				<textElement>
+					<font fontName="Tahoma" size="8"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[Number transfered to other hospitals]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="330" y="129" width="393" height="20"/>
+				<textElement>
+					<font fontName="Tahoma" size="8"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[Number of deaths occured within 48 hours of admissions to the hospital]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="330" y="149" width="393" height="20"/>
+				<textElement>
+					<font fontName="Tahoma" size="8"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[Total hospital deaths]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="330" y="169" width="393" height="20"/>
+				<textElement>
+					<font fontName="Tahoma" size="8"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[Number of patients remaining in the hospital at the end  of the quarter]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="330" y="189" width="393" height="20"/>
+				<textElement>
+					<font fontName="Tahoma" size="8"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[Number of missing BHTs]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="330" y="209" width="393" height="20"/>
+				<textElement>
+					<font fontName="Tahoma" size="8"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[Total patient days(arrived by adding the daily count of all patients resident in the hospital during the quarter]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="330" y="229" width="393" height="20"/>
+				<textElement>
+					<font fontName="Tahoma" size="8"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[Patient beds( excluding labour,examination and unservicable)]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="726" y="49" width="56" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$P{fs_item_A}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="726" y="69" width="56" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$P{fs_item_B}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="726" y="89" width="56" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$P{fs_item_C}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="726" y="109" width="56" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$P{fs_item_D}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="726" y="129" width="56" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$P{fs_item_E}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="726" y="149" width="56" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$P{fs_item_F}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="726" y="169" width="56" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$P{fs_item_G}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="726" y="189" width="56" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$P{fs_item_H}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement positionType="Float" x="726" y="209" width="56" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$P{fs_item_I}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement positionType="Float" x="726" y="229" width="56" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$P{fs_item_J}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="726" y="29" width="55" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Indicator]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="257" width="391" height="70"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="391" y="257" width="392" height="70"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="391" y="327" width="392" height="132"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="327" width="391" height="132"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="257" width="198" height="20"/>
+				<textElement>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[For the preparing officer]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="393" y="257" width="198" height="20"/>
+				<textElement>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[For the certifing officer]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="277" width="389" height="50"/>
+				<textElement>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[Important : The returns must be prepared with great care. It is your responsibility for
+accuracy,timeliness and reality of the data.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="394" y="277" width="389" height="50"/>
+				<textElement>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[Please ensure that an Indoor Morbidity and Mortality Register is maintained. A random
+check of the entries made in this return should be done before certifing.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="472" width="783" height="47"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[*According to the general circular(circular number 01-05/99), all inpatient admission must be in one admission source for all sections.(If any institute maintains seperate admission register or seperate numbering system e.g., General Admission,Accident Service Admissions, Primary Care Admissions and Admissions to the Paying Sections etc..., they may be advised to maintain/prepare sepereate IMMR reports for each sections. This method can be useful for maintaining the accuracy of the hospital records.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="345" width="64" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Prepared by ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="67" y="328" width="110" height="20"/>
+				<textElement verticalAlignment="Bottom">
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="67" y="353" width="110" height="20"/>
+				<textElement verticalAlignment="Bottom">
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Designation]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="67" y="404" width="110" height="20"/>
+				<textElement verticalAlignment="Bottom">
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Direct/Mobile Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="67" y="377" width="110" height="20"/>
+				<textElement verticalAlignment="Bottom">
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Signature]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="67" y="431" width="110" height="20"/>
+				<textElement verticalAlignment="Bottom">
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="177" y="431" width="210" height="20"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[...............................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="177" y="353" width="210" height="20"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[...............................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="177" y="404" width="210" height="20"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[...............................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="177" y="328" width="210" height="20"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[...............................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="177" y="377" width="210" height="20"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[...............................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="571" y="430" width="210" height="20"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[...............................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="461" y="430" width="110" height="20"/>
+				<textElement verticalAlignment="Bottom">
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="395" y="344" width="64" height="20"/>
+				<textElement>
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Certified by ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="571" y="352" width="210" height="20"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[...............................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="571" y="376" width="210" height="20"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[...............................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="571" y="403" width="210" height="20"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[...............................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="571" y="327" width="210" height="20"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[...............................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="461" y="352" width="110" height="20"/>
+				<textElement verticalAlignment="Bottom">
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Designation]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="461" y="403" width="110" height="20"/>
+				<textElement verticalAlignment="Bottom">
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Direct/Mobile Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="461" y="327" width="110" height="20"/>
+				<textElement verticalAlignment="Bottom">
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="461" y="376" width="110" height="20"/>
+				<textElement verticalAlignment="Bottom">
+					<font isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Signature]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="0" y="29" width="292" height="220"/>
+				<subreportParameter name="Adm_Year"/>
+				<subreportParameter name="Adm_Qtr"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[System.getProperty("user.dir")+"\\Reports\\IMMR_100_R09_AdmissionSummary.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</title>
+</jasperReport>

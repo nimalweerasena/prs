@@ -1,0 +1,2316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="IMMR_100_R09_Part2" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="785" leftMargin="36" rightMargin="21" topMargin="21" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="immr_year" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="immr_quarter" class="java.lang.Integer"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["I:\\Developments\\NetBeansProjects\\immr\\Reports\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fs_item_A" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fs_item_B" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fs_item_C" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fs_item_D" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fs_item_E" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fs_item_F" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fs_item_G" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fs_item_H" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fs_item_I" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fs_item_J" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT
+     immr.`immr_final_1_M_1`+immr.`immr_final_1_M_2`+immr.`immr_final_1_M_3`+immr.`immr_final_1_M_4`+immr.`immr_final_1_M_5`+immr.`immr_final_1_M_6`+immr.`immr_final_1_M_7`  AS 1_m_total,
+     immr.`immr_final_1_F_1`+immr.`immr_final_1_F_2`+immr.`immr_final_1_F_3`+immr.`immr_final_1_F_4`+immr.`immr_final_1_F_5`+immr.`immr_final_1_F_6`+immr.`immr_final_1_F_7`  AS 1_F_total,
+     immr.`immr_final_2_M_1`+immr.`immr_final_2_M_2`+immr.`immr_final_2_M_3`+immr.`immr_final_2_M_4`+immr.`immr_final_2_M_5`+immr.`immr_final_2_M_6`+immr.`immr_final_2_M_7`  AS 2_M_total,
+     immr.`immr_final_2_F_1`+immr.`immr_final_2_F_2`+immr.`immr_final_2_F_3`+immr.`immr_final_2_F_4`+immr.`immr_final_2_F_5`+immr.`immr_final_2_F_6`+immr.`immr_final_2_F_7`  AS 2_F_total,
+     immr.`immr_final_Disyear` AS immr_immr_final_Disyear,
+     immr.`immr_final_Disquarter` AS immr_immr_final_Disquarter,
+     immr.`immr_final_immr_code` AS immr_immr_final_immr_code,
+     immr.`immr_final_1_F_1` AS immr_immr_final_1_F_1,
+     immr.`immr_final_1_F_2` AS immr_immr_final_1_F_2,
+     immr.`immr_final_1_F_3` AS immr_immr_final_1_F_3,
+     immr.`immr_final_1_F_4` AS immr_immr_final_1_F_4,
+     immr.`immr_final_1_F_5` AS immr_immr_final_1_F_5,
+     immr.`immr_final_1_F_6` AS immr_immr_final_1_F_6,
+     immr.`immr_final_1_F_7` AS immr_immr_final_1_F_7,
+     immr.`immr_final_2_F_1` AS immr_immr_final_2_F_1,
+     immr.`immr_final_2_F_2` AS immr_immr_final_2_F_2,
+     immr.`immr_final_2_F_3` AS immr_immr_final_2_F_3,
+     immr.`immr_final_2_F_4` AS immr_immr_final_2_F_4,
+     immr.`immr_final_2_F_5` AS immr_immr_final_2_F_5,
+     immr.`immr_final_2_F_6` AS immr_immr_final_2_F_6,
+     immr.`immr_final_2_F_7` AS immr_immr_final_2_F_7,
+     immr.`immr_final_2_M_1` AS immr_immr_final_2_M_1,
+     immr.`immr_final_2_M_2` AS immr_immr_final_2_M_2,
+     immr.`immr_final_2_M_3` AS immr_immr_final_2_M_3,
+     immr.`immr_final_2_M_4` AS immr_immr_final_2_M_4,
+     immr.`immr_final_2_M_5` AS immr_immr_final_2_M_5,
+     immr.`immr_final_2_M_6` AS immr_immr_final_2_M_6,
+     immr.`immr_final_2_M_7` AS immr_immr_final_2_M_7,
+     immr.`immr_titles_icd10_immr_d_disease` AS immr_immr_titles_icd10_immr_d_disease,
+     immr.`immr_titles_icd10_block_d_Title` AS immr_immr_titles_icd10_block_d_Title,
+     immr.`immr_final_1_M_1` AS immr_immr_final_1_M_1,
+     immr.`immr_final_1_M_2` AS immr_immr_final_1_M_2,
+     immr.`immr_final_1_M_3` AS immr_immr_final_1_M_3,
+     immr.`immr_final_1_M_4` AS immr_immr_final_1_M_4,
+     immr.`immr_final_1_M_5` AS immr_immr_final_1_M_5,
+     immr.`immr_final_1_M_6` AS immr_immr_final_1_M_6,
+     immr.`immr_final_1_M_7` AS immr_immr_final_1_M_7,
+immr.`immr_titles_icd10_immr_d_immrNo` AS immr_immr_titles_icd10_immr_d_immrNo
+FROM
+     `immr` immr]]>
+	</queryString>
+	<field name="1_m_total" class="java.lang.Double"/>
+	<field name="1_F_total" class="java.lang.Double"/>
+	<field name="2_M_total" class="java.lang.Double"/>
+	<field name="2_F_total" class="java.lang.Double"/>
+	<field name="immr_immr_final_Disyear" class="java.lang.Integer"/>
+	<field name="immr_immr_final_Disquarter" class="java.lang.Integer"/>
+	<field name="immr_immr_final_immr_code" class="java.lang.String"/>
+	<field name="immr_immr_final_1_F_1" class="java.lang.Double"/>
+	<field name="immr_immr_final_1_F_2" class="java.lang.Double"/>
+	<field name="immr_immr_final_1_F_3" class="java.lang.Double"/>
+	<field name="immr_immr_final_1_F_4" class="java.lang.Double"/>
+	<field name="immr_immr_final_1_F_5" class="java.lang.Double"/>
+	<field name="immr_immr_final_1_F_6" class="java.lang.Double"/>
+	<field name="immr_immr_final_1_F_7" class="java.lang.Double"/>
+	<field name="immr_immr_final_2_F_1" class="java.lang.Double"/>
+	<field name="immr_immr_final_2_F_2" class="java.lang.Double"/>
+	<field name="immr_immr_final_2_F_3" class="java.lang.Double"/>
+	<field name="immr_immr_final_2_F_4" class="java.lang.Double"/>
+	<field name="immr_immr_final_2_F_5" class="java.lang.Double"/>
+	<field name="immr_immr_final_2_F_6" class="java.lang.Double"/>
+	<field name="immr_immr_final_2_F_7" class="java.lang.Double"/>
+	<field name="immr_immr_final_2_M_1" class="java.lang.Double"/>
+	<field name="immr_immr_final_2_M_2" class="java.lang.Double"/>
+	<field name="immr_immr_final_2_M_3" class="java.lang.Double"/>
+	<field name="immr_immr_final_2_M_4" class="java.lang.Double"/>
+	<field name="immr_immr_final_2_M_5" class="java.lang.Double"/>
+	<field name="immr_immr_final_2_M_6" class="java.lang.Double"/>
+	<field name="immr_immr_final_2_M_7" class="java.lang.Double"/>
+	<field name="immr_immr_titles_icd10_immr_d_disease" class="java.lang.String"/>
+	<field name="immr_immr_titles_icd10_block_d_Title" class="java.lang.String"/>
+	<field name="immr_immr_final_1_M_1" class="java.lang.Double"/>
+	<field name="immr_immr_final_1_M_2" class="java.lang.Double"/>
+	<field name="immr_immr_final_1_M_3" class="java.lang.Double"/>
+	<field name="immr_immr_final_1_M_4" class="java.lang.Double"/>
+	<field name="immr_immr_final_1_M_5" class="java.lang.Double"/>
+	<field name="immr_immr_final_1_M_6" class="java.lang.Double"/>
+	<field name="immr_immr_final_1_M_7" class="java.lang.Double"/>
+	<field name="immr_immr_titles_icd10_immr_d_immrNo" class="java.lang.String"/>
+	<variable name="immr_immr_final_1_F_1_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_1_F_1}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_1_F_2_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_1_F_2}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_1_F_3_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_1_F_3}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_1_F_4_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_1_F_4}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_1_F_5_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_1_F_5}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_1_M_6_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_1_M_6}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_1_F_6_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_1_F_6}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_1_F_7_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_1_F_7}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_2_F_1_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_2_F_1}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_2_F_2_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_2_F_2}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_2_F_3_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_2_F_3}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_2_F_4_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_2_F_4}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_2_F_5_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_2_F_5}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_2_F_6_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_2_F_6}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_2_F_7_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_2_F_7}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_2_M_1_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_2_M_1}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_2_M_2_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_2_M_2}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_2_M_3_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_2_M_3}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_2_M_4_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_2_M_4}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_2_M_5_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_2_M_5}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_2_M_6_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_2_M_6}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_2_M_7_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_2_M_7}]]></variableExpression>
+	</variable>
+	<variable name="1_m_total_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{1_m_total}]]></variableExpression>
+	</variable>
+	<variable name="1_F_total_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{1_F_total}]]></variableExpression>
+	</variable>
+	<variable name="2_M_total_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{2_M_total}]]></variableExpression>
+	</variable>
+	<variable name="2_F_total_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{2_F_total}]]></variableExpression>
+	</variable>
+	<variable name="page_even" class="java.lang.Integer" incrementType="Page" calculation="Count">
+		<variableExpression><![CDATA[$V{PAGE_NUMBER}-1]]></variableExpression>
+		<initialValueExpression><![CDATA[]]></initialValueExpression>
+	</variable>
+	<variable name="immr_immr_final_1_F_1_1_1" class="java.lang.Double" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_1_F_1}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_1_F_2_1_1" class="java.lang.Double" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_1_F_2}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_1_F_3_1_1" class="java.lang.Double" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_1_F_3}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_1_F_4_1_1" class="java.lang.Double" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_1_F_4}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_1_F_5_1_1" class="java.lang.Double" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_1_F_5}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_1_M_6_1_1" class="java.lang.Double" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_1_M_6}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_1_F_6_1_1" class="java.lang.Double" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_1_F_6}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_1_F_7_1_1" class="java.lang.Double" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_1_F_7}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_2_F_1_1_1" class="java.lang.Double" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_2_F_1}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_2_F_2_1_1" class="java.lang.Double" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_2_F_2}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_2_F_3_1_1" class="java.lang.Double" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_2_F_3}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_2_F_4_1_1" class="java.lang.Double" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_2_F_4}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_2_F_5_1_1" class="java.lang.Double" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_2_F_5}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_2_F_6_1_1" class="java.lang.Double" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_2_F_6}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_2_F_7_1_1" class="java.lang.Double" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_2_F_7}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_2_M_1_1_1" class="java.lang.Double" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_2_M_1}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_2_M_2_1_1" class="java.lang.Double" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_2_M_2}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_2_M_3_1_1" class="java.lang.Double" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_2_M_3}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_2_M_4_1_1" class="java.lang.Double" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_2_M_4}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_2_M_5_1_1" class="java.lang.Double" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_2_M_5}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_2_M_6_1_1" class="java.lang.Double" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_2_M_6}]]></variableExpression>
+	</variable>
+	<variable name="immr_immr_final_2_M_7_1_1" class="java.lang.Double" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_immr_final_2_M_7}]]></variableExpression>
+	</variable>
+	<variable name="1_m_total_1_1" class="java.lang.Double" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{1_m_total}]]></variableExpression>
+	</variable>
+	<variable name="1_F_total_1_1" class="java.lang.Double" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{1_F_total}]]></variableExpression>
+	</variable>
+	<variable name="2_M_total_1_1" class="java.lang.Double" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{2_M_total}]]></variableExpression>
+	</variable>
+	<variable name="2_F_total_1_1" class="java.lang.Double" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{2_F_total}]]></variableExpression>
+	</variable>
+	<group name="d_title">
+		<groupExpression><![CDATA[$F{immr_immr_titles_icd10_block_d_Title}]]></groupExpression>
+		<groupHeader>
+			<band height="14">
+				<textField isBlankWhenNull="true">
+					<reportElement mode="Opaque" x="0" y="0" width="784" height="14" backcolor="#CCCCCC"/>
+					<textElement>
+						<font fontName="Tahoma" size="10" isBold="true" isUnderline="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="60" splitType="Stretch">
+			<staticText>
+				<reportElement x="169" y="45" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[14]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="61" y="45" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[10]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="115" y="45" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[12]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="34" y="30" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[<1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="88" y="45" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[11]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="1" width="261" height="15"/>
+				<box leftPadding="0">
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Live Discharges]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="34" y="45" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[9]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="115" y="30" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[17-49]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="142" y="45" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[13]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="196" y="45" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[15]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="88" y="30" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[5-16]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="34" y="15" width="228" height="15"/>
+				<box leftPadding="0">
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Female by Age group]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="196" y="30" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[N/Av]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="223" y="30" width="39" height="30"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[16
+Total
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="169" y="30" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[70-=+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="15" width="33" height="45"/>
+				<box leftPadding="0">
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Disease
+Code]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="61" y="30" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[1-4]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="142" y="30" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<text><![CDATA[50-69]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="431" y="45" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[22]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="45" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[18]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="377" y="45" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[20]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="296" y="30" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[<1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="350" y="45" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[19]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="263" y="1" width="521" height="15"/>
+				<box leftPadding="0">
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Deaths]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="296" y="45" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[17]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="377" y="30" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[17-49]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="404" y="45" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[21]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="458" y="45" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[23]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="350" y="30" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[5-16]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="296" y="15" width="228" height="15"/>
+				<box leftPadding="0">
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Male by Age group]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="458" y="30" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[N/Av]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="485" y="30" width="39" height="30"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[24
+Total
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="431" y="30" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[70-=+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="263" y="15" width="33" height="45"/>
+				<box leftPadding="0">
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Disease
+Code]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="30" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[1-4]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="404" y="30" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<text><![CDATA[50-69]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="696" y="45" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[30]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="584" y="45" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[26]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="640" y="45" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[28]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="556" y="30" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[<1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="612" y="45" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[27]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="556" y="45" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[25]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="640" y="30" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[17-49]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="668" y="45" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[29]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="724" y="45" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[31]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="612" y="30" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[5-16]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="556" y="15" width="228" height="15"/>
+				<box leftPadding="0">
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Female by Age group]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="724" y="30" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[N/Av]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="751" y="30" width="33" height="30"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[32
+Total
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="696" y="30" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[70-=+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="523" y="15" width="33" height="45"/>
+				<box leftPadding="0">
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="Left">
+					<font fontName="Tahoma" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Disease
+Code]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="584" y="30" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[1-4]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="668" y="30" width="27" height="15"/>
+				<box>
+					<pen lineWidth="0.75" lineStyle="Double"/>
+					<topPen lineWidth="0.75" lineStyle="Double"/>
+					<leftPen lineWidth="0.75" lineStyle="Double"/>
+					<bottomPen lineWidth="0.75" lineStyle="Double"/>
+					<rightPen lineWidth="0.75" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<text><![CDATA[50-69]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="13" splitType="Stretch">
+			<rectangle>
+				<reportElement x="1" y="0" width="33" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="262" y="0" width="34" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="523" y="0" width="33" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="751" y="0" width="33" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="696" y="0" width="28" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="724" y="0" width="28" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="668" y="0" width="28" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="640" y="0" width="28" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="612" y="0" width="28" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="584" y="0" width="28" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="556" y="0" width="28" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="223" y="0" width="39" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="169" y="0" width="27" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="196" y="0" width="27" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="142" y="0" width="27" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="115" y="0" width="27" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="88" y="0" width="27" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="61" y="0" width="27" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="34" y="0" width="27" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="485" y="0" width="39" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="431" y="0" width="27" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="458" y="0" width="27" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="404" y="0" width="27" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="377" y="0" width="27" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="350" y="0" width="27" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="323" y="0" width="27" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="296" y="0" width="27" height="13"/>
+			</rectangle>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="115" y="0" width="27" height="13" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{immr_immr_final_1_F_4}!=0]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{immr_immr_final_1_F_4}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="1" y="0" width="33" height="13" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{immr_immr_titles_icd10_immr_d_immrNo}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="142" y="0" width="27" height="13" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{immr_immr_final_1_F_5}!=0]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{immr_immr_final_1_F_5}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="196" y="0" width="27" height="13" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{immr_immr_final_1_F_7}!=0]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{immr_immr_final_1_F_7}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="false">
+				<reportElement x="34" y="0" width="27" height="13" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{immr_immr_final_1_F_1}!=0]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{immr_immr_final_1_F_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="169" y="0" width="27" height="13" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{immr_immr_final_1_F_6}!=0]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{immr_immr_final_1_F_6}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="61" y="0" width="27" height="13" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{immr_immr_final_1_F_2}!=0]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{immr_immr_final_1_F_2}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="88" y="0" width="27" height="13" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{immr_immr_final_1_F_3}!=0]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{immr_immr_final_1_F_3}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="223" y="0" width="39" height="13" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{1_F_total}!=0]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{1_F_total}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="377" y="0" width="27" height="13" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{immr_immr_final_2_M_4}!=0]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{immr_immr_final_2_M_4}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="263" y="0" width="34" height="13" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{immr_immr_titles_icd10_immr_d_immrNo}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="404" y="0" width="27" height="13" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{immr_immr_final_2_M_5}!=0]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{immr_immr_final_2_M_5}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="458" y="0" width="27" height="13" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{immr_immr_final_2_M_7}!=0]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{immr_immr_final_2_M_7}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="296" y="0" width="27" height="13" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{immr_immr_final_2_M_1}!=0]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{immr_immr_final_2_M_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="431" y="0" width="27" height="13" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{immr_immr_final_2_M_6}!=0]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{immr_immr_final_2_M_6}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="323" y="0" width="27" height="13" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{immr_immr_final_2_M_2}!=0]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{immr_immr_final_2_M_2}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="350" y="0" width="27" height="13" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{immr_immr_final_2_M_3}!=0]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{immr_immr_final_2_M_3}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="485" y="0" width="39" height="13" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{2_M_total}!=0]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{2_M_total}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="640" y="0" width="27" height="13" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{immr_immr_final_2_F_4}!=0]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{immr_immr_final_2_F_4}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="523" y="0" width="33" height="13" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{immr_immr_titles_icd10_immr_d_immrNo}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="669" y="0" width="27" height="13" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{immr_immr_final_2_F_5}!=0]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{immr_immr_final_2_F_5}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="725" y="0" width="27" height="13" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{immr_immr_final_2_F_7}!=0]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{immr_immr_final_2_F_7}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="556" y="0" width="27" height="13" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{immr_immr_final_2_F_1}!=0]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{immr_immr_final_2_F_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="697" y="0" width="27" height="13" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{immr_immr_final_2_F_6}!=0]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{immr_immr_final_2_F_6}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="586" y="0" width="27" height="13" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{immr_immr_final_2_F_2}!=0]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{immr_immr_final_2_F_2}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="613" y="0" width="27" height="13" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{immr_immr_final_2_F_3}!=0]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{immr_immr_final_2_F_3}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="751" y="0" width="32" height="13" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{2_F_total}!=0]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{2_F_total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="33" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="16" width="784" height="17"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Page " + new Integer($V{PAGE_NUMBER}+$V{PAGE_NUMBER})]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="1" y="0" width="33" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="262" y="0" width="33" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="523" y="0" width="33" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="751" y="0" width="33" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="696" y="0" width="27" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="724" y="0" width="27" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="668" y="0" width="27" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="640" y="0" width="27" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="612" y="0" width="27" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="584" y="0" width="27" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="556" y="0" width="27" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="223" y="0" width="39" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="169" y="0" width="27" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="196" y="0" width="27" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="142" y="0" width="27" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="115" y="0" width="27" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="88" y="0" width="27" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="61" y="0" width="27" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="34" y="0" width="27" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="485" y="0" width="39" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="431" y="0" width="27" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="458" y="0" width="27" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="404" y="0" width="27" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="377" y="0" width="27" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="350" y="0" width="27" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="323" y="0" width="27" height="13"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="296" y="0" width="27" height="13"/>
+			</rectangle>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="114" y="0" width="27" height="13" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_1_F_4_1_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="141" y="0" width="27" height="13" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_1_F_5_1_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="195" y="0" width="27" height="13" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_1_F_7_1_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="33" y="0" width="27" height="13" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_2_F_1_1_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="168" y="0" width="27" height="13" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_1_F_6_1_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="60" y="0" width="27" height="13" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_1_F_2_1_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="87" y="0" width="27" height="13" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_1_F_3_1_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="222" y="0" width="39" height="13" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{1_F_total_1_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="376" y="0" width="27" height="13" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_2_M_4_1_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="403" y="0" width="27" height="13" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_2_M_5_1_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="457" y="0" width="27" height="13" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_2_M_7_1_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="295" y="0" width="27" height="13" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_2_M_1_1_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="430" y="0" width="27" height="13" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_2_M_6_1_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="322" y="0" width="27" height="13" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_2_M_2_1_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="349" y="0" width="27" height="13" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_2_M_3_1_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="484" y="0" width="39" height="13" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{2_M_total_1_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="639" y="0" width="27" height="13" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_2_F_4_1_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="668" y="0" width="27" height="13" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_2_F_5_1_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="724" y="0" width="27" height="13" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_2_F_7_1_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="555" y="0" width="27" height="13" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_2_F_1_1_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="696" y="0" width="27" height="13" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_2_F_6_1_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="585" y="0" width="27" height="13" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_2_F_2_1_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="612" y="0" width="27" height="13" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_2_F_3_1_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="750" y="0" width="32" height="13" isRemoveLineWhenBlank="true"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{2_F_total_1_1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="57" splitType="Stretch">
+			<rectangle>
+				<reportElement x="1" y="0" width="33" height="23"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="262" y="0" width="34" height="23"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="523" y="0" width="33" height="23"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="751" y="0" width="33" height="23"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="696" y="0" width="28" height="23"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="724" y="0" width="28" height="23"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="668" y="0" width="28" height="23"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="640" y="0" width="28" height="23"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="612" y="0" width="28" height="23"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="584" y="0" width="28" height="23"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="556" y="0" width="28" height="23"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="223" y="0" width="39" height="23"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="169" y="0" width="27" height="23"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="196" y="0" width="27" height="23"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="142" y="0" width="27" height="23"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="115" y="0" width="27" height="23"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="88" y="0" width="27" height="23"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="61" y="0" width="27" height="23"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="34" y="0" width="27" height="23"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="485" y="0" width="39" height="23"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="431" y="0" width="27" height="23"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="458" y="0" width="27" height="23"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="404" y="0" width="27" height="23"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="377" y="0" width="27" height="23"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="350" y="0" width="27" height="23"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="323" y="0" width="27" height="23"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="296" y="0" width="27" height="23"/>
+			</rectangle>
+			<textField pattern="###0">
+				<reportElement x="34" y="0" width="27" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_1_F_1_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="61" y="0" width="27" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_1_F_2_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="90" y="0" width="27" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_1_F_3_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="117" y="0" width="27" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_1_F_4_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="144" y="0" width="27" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_1_F_5_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="170" y="0" width="27" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_1_F_6_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="197" y="0" width="27" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_1_F_7_1}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement positionType="Float" mode="Transparent" x="1" y="23" width="784" height="21" backcolor="#CCCCCC"/>
+				<subreportParameter name="fs_item_D">
+					<subreportParameterExpression><![CDATA[$P{fs_item_D}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fs_item_E">
+					<subreportParameterExpression><![CDATA[$P{fs_item_E}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fs_item_B">
+					<subreportParameterExpression><![CDATA[$P{fs_item_B}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fs_item_C">
+					<subreportParameterExpression><![CDATA[$P{fs_item_C}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fs_item_H">
+					<subreportParameterExpression><![CDATA[$P{fs_item_H}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fs_item_I">
+					<subreportParameterExpression><![CDATA[$P{fs_item_I}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fs_item_F">
+					<subreportParameterExpression><![CDATA[$P{fs_item_F}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fs_item_G">
+					<subreportParameterExpression><![CDATA[$P{fs_item_G}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="immr_year">
+					<subreportParameterExpression><![CDATA[$P{immr_year}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fs_item_J">
+					<subreportParameterExpression><![CDATA[$P{fs_item_J}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="fs_item_A">
+					<subreportParameterExpression><![CDATA[$P{fs_item_A}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="immr_quarter">
+					<subreportParameterExpression><![CDATA[$P{immr_quarter}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[System.getProperty("user.dir")+"\\Reports\\IMMR_100_R09_FinalSummary.jasper"]]></subreportExpression>
+			</subreport>
+			<textField pattern="###0">
+				<reportElement x="224" y="0" width="39" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{1_F_total_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="431" y="0" width="27" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_2_M_6_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="458" y="0" width="27" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_2_M_7_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="295" y="0" width="27" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_2_M_1_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="405" y="0" width="27" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_2_M_5_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="378" y="0" width="27" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_2_M_4_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="351" y="0" width="27" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_2_M_3_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="322" y="0" width="27" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_2_M_2_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="485" y="0" width="39" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{2_M_total_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="697" y="0" width="28" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_2_F_6_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="725" y="0" width="27" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_2_F_7_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="558" y="0" width="27" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_2_F_1_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="668" y="0" width="27" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_2_F_5_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="641" y="0" width="27" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_2_F_4_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="614" y="0" width="27" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_2_F_3_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="585" y="0" width="27" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{immr_immr_final_2_F_2_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="752" y="0" width="31" height="23"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$V{2_F_total_1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="4" y="3" width="30" height="20"/>
+				<textElement>
+					<font fontName="Tahoma"/>
+				</textElement>
+				<text><![CDATA[(GT)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="263" y="3" width="30" height="20"/>
+				<textElement/>
+				<text><![CDATA[(GT)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="526" y="3" width="30" height="20"/>
+				<textElement>
+					<font fontName="Tahoma"/>
+				</textElement>
+				<text><![CDATA[(GT)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="706" y="44" width="77" height="13"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[N/Av : Age not known]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

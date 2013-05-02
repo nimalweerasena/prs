@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DischargeSummary" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     if(diagnose.`med_legel`=1,'True','False') AS MedicoLegal,
+     diagnose.`bhtno` AS diagnose_bhtno,
+     diagnose.`d_group` AS diagnose_d_group,
+     diagnose.`sys_date` AS diagnose_sys_date,
+     diagnose.`dis_date` AS diagnose_dis_date,
+     diagnose.`dis_time` AS diagnose_dis_time,
+     diagnose.`hospid` AS TransferedHospital,
+     hospital.`name` AS hospital_name,
+     discharge_types.`type` AS discharge_types_type
+FROM
+     `diagnose` diagnose LEFT OUTER JOIN `hospital` hospital ON diagnose.`hospid` = hospital.`sno`
+     INNER JOIN `discharge_types` discharge_types ON diagnose.`dis_code` = discharge_types.`dis_code`]]>
+	</queryString>
+	<field name="MedicoLegal" class="java.lang.String"/>
+	<field name="diagnose_bhtno" class="java.lang.String"/>
+	<field name="diagnose_d_group" class="java.lang.String"/>
+	<field name="diagnose_sys_date" class="java.sql.Date"/>
+	<field name="diagnose_dis_date" class="java.sql.Date"/>
+	<field name="diagnose_dis_time" class="java.sql.Time"/>
+	<field name="TransferedHospital" class="java.lang.Long"/>
+	<field name="hospital_name" class="java.lang.String"/>
+	<field name="discharge_types_type" class="java.lang.String"/>
+	<sortField name="intertransfer_bhtno"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

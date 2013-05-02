@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="MasterReport" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["I:\\Developments\\NetBeansProjects\\immr\\Reports\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     deptinfo.`DEPCODE` AS deptinfo_DEPCODE,
+     deptinfo.`DEPNAME` AS deptinfo_DEPNAME,
+     deptinfo.`ADDRESS1` AS deptinfo_ADDRESS1,
+     deptinfo.`ADDRESS2` AS deptinfo_ADDRESS2,
+     deptinfo.`DISTRICT` AS deptinfo_DISTRICT,
+     deptinfo.`AGADIV` AS deptinfo_AGADIV,
+     deptinfo.`MOHDIV` AS deptinfo_MOHDIV,
+     deptinfo.`HEADOFNAME` AS deptinfo_HEADOFNAME,
+     deptinfo.`DESIGNATION` AS deptinfo_DESIGNATION,
+     deptinfo.`CONTACT` AS deptinfo_CONTACT
+FROM
+     `deptinfo` deptinfo]]>
+	</queryString>
+	<field name="deptinfo_DEPCODE" class="java.lang.String"/>
+	<field name="deptinfo_DEPNAME" class="java.lang.String"/>
+	<field name="deptinfo_ADDRESS1" class="java.lang.String"/>
+	<field name="deptinfo_ADDRESS2" class="java.lang.String"/>
+	<field name="deptinfo_DISTRICT" class="java.lang.String"/>
+	<field name="deptinfo_AGADIV" class="java.lang.String"/>
+	<field name="deptinfo_MOHDIV" class="java.lang.String"/>
+	<field name="deptinfo_HEADOFNAME" class="java.lang.String"/>
+	<field name="deptinfo_DESIGNATION" class="java.lang.String"/>
+	<field name="deptinfo_CONTACT" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="111" height="20"/>
+				<textElement/>
+				<text><![CDATA[deptinfo_DEPCODE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="111" y="0" width="111" height="20"/>
+				<textElement/>
+				<text><![CDATA[deptinfo_DEPNAME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="222" y="0" width="111" height="20"/>
+				<textElement/>
+				<text><![CDATA[deptinfo_ADDRESS1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="333" y="0" width="111" height="20"/>
+				<textElement/>
+				<text><![CDATA[deptinfo_ADDRESS2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="444" y="0" width="111" height="20"/>
+				<textElement/>
+				<text><![CDATA[deptinfo_DISTRICT]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="111" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{deptinfo_DEPCODE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="111" y="0" width="111" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{deptinfo_DEPNAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="222" y="0" width="111" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{deptinfo_ADDRESS1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="333" y="0" width="111" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{deptinfo_ADDRESS2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="444" y="0" width="111" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{deptinfo_DISTRICT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="33" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="18" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="68" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="36"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "IMMR_100_R09_FinalNote.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
+</jasperReport>

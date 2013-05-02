@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="MidNight" pageWidth="595" pageHeight="842" columnWidth="539" leftMargin="36" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="date" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     midnight.`w_num` AS w_num,
+     midnight.`ANC` AS ANC,
+     midnight.`PNC` AS PNC,
+     midnight.`deli` AS deli,
+     midnight.`bady` AS bady,
+     midnight.`trans_IN` AS trans_IN,
+     midnight.`trans_OUT` AS trans_OUT,
+     midnight.`trans_other_hos` AS trans_other_hos,
+     midnight.`AMA` AS AMA,
+     midnight.`miss` AS miss,
+     midnight.`death` AS death,
+     midnight.`PDT` AS PDT,
+     midnight.`adm` AS adm,
+     midnight.`disch` AS disch,
+     midnight.`ttal` AS ttal,
+     midnight.`date` AS date,
+     deptinfo.`DEPNAME` AS deptinfo_DEPNAME
+FROM
+     `midnight` midnight,
+     `deptinfo` deptinfo
+WHERE
+     midnight.`date` = $P{date}]]>
+	</queryString>
+	<field name="w_num" class="java.lang.String"/>
+	<field name="ANC" class="java.lang.Integer"/>
+	<field name="PNC" class="java.lang.Integer"/>
+	<field name="deli" class="java.lang.Integer"/>
+	<field name="bady" class="java.lang.Integer"/>
+	<field name="trans_IN" class="java.lang.Integer"/>
+	<field name="trans_OUT" class="java.lang.Integer"/>
+	<field name="trans_other_hos" class="java.lang.Integer"/>
+	<field name="AMA" class="java.lang.Integer"/>
+	<field name="miss" class="java.lang.Integer"/>
+	<field name="death" class="java.lang.Integer"/>
+	<field name="PDT" class="java.lang.Integer"/>
+	<field name="adm" class="java.lang.Integer"/>
+	<field name="disch" class="java.lang.Integer"/>
+	<field name="ttal" class="java.lang.Integer"/>
+	<field name="date" class="java.sql.Date"/>
+	<field name="deptinfo_DEPNAME" class="java.lang.String"/>
+	<variable name="ANC_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{ANC}]]></variableExpression>
+	</variable>
+	<variable name="PNC_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{PNC}]]></variableExpression>
+	</variable>
+	<variable name="deli_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{deli}]]></variableExpression>
+	</variable>
+	<variable name="bady_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{bady}]]></variableExpression>
+	</variable>
+	<variable name="trans_IN_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{trans_IN}]]></variableExpression>
+	</variable>
+	<variable name="trans_OUT_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{trans_OUT}]]></variableExpression>
+	</variable>
+	<variable name="trans_other_hos_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{trans_other_hos}]]></variableExpression>
+	</variable>
+	<variable name="AMA_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{AMA}]]></variableExpression>
+	</variable>
+	<variable name="miss_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{miss}]]></variableExpression>
+	</variable>
+	<variable name="death_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{death}]]></variableExpression>
+	</variable>
+	<variable name="PDT_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{PDT}]]></variableExpression>
+	</variable>
+	<variable name="adm_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{adm}]]></variableExpression>
+	</variable>
+	<variable name="disch_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{disch}]]></variableExpression>
+	</variable>
+	<variable name="ttal_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{ttal}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="55" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="2" y="15" width="532" height="40"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{deptinfo_DEPNAME}+"\n"+"MID NIGHT REPORT FOR " +new SimpleDateFormat("EEEE dd MMMMM yyyy").format($P{date}).toUpperCase()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="7" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="53" splitType="Stretch">
+			<staticText>
+				<reportElement x="72" y="0" width="33" height="53"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000099"/>
+					<topPen lineWidth="0.5" lineColor="#000099"/>
+					<leftPen lineWidth="0.5" lineColor="#000099"/>
+					<bottomPen lineWidth="0.5" lineColor="#000099"/>
+					<rightPen lineWidth="0.5" lineColor="#000099"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[ANC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="105" y="0" width="33" height="53"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000099"/>
+					<topPen lineWidth="0.5" lineColor="#000099"/>
+					<leftPen lineWidth="0.5" lineColor="#000099"/>
+					<bottomPen lineWidth="0.5" lineColor="#000099"/>
+					<rightPen lineWidth="0.5" lineColor="#000099"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[PNC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="138" y="0" width="33" height="53"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000099"/>
+					<topPen lineWidth="0.5" lineColor="#000099"/>
+					<leftPen lineWidth="0.5" lineColor="#000099"/>
+					<bottomPen lineWidth="0.5" lineColor="#000099"/>
+					<rightPen lineWidth="0.5" lineColor="#000099"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[deli]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="171" y="0" width="33" height="53"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000099"/>
+					<topPen lineWidth="0.5" lineColor="#000099"/>
+					<leftPen lineWidth="0.5" lineColor="#000099"/>
+					<bottomPen lineWidth="0.5" lineColor="#000099"/>
+					<rightPen lineWidth="0.5" lineColor="#000099"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[bady]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="204" y="0" width="33" height="53"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000099"/>
+					<topPen lineWidth="0.5" lineColor="#000099"/>
+					<leftPen lineWidth="0.5" lineColor="#000099"/>
+					<bottomPen lineWidth="0.5" lineColor="#000099"/>
+					<rightPen lineWidth="0.5" lineColor="#000099"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[trans_IN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="237" y="0" width="33" height="53"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000099"/>
+					<topPen lineWidth="0.5" lineColor="#000099"/>
+					<leftPen lineWidth="0.5" lineColor="#000099"/>
+					<bottomPen lineWidth="0.5" lineColor="#000099"/>
+					<rightPen lineWidth="0.5" lineColor="#000099"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[trans_OUT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="270" y="0" width="33" height="53"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000099"/>
+					<topPen lineWidth="0.5" lineColor="#000099"/>
+					<leftPen lineWidth="0.5" lineColor="#000099"/>
+					<bottomPen lineWidth="0.5" lineColor="#000099"/>
+					<rightPen lineWidth="0.5" lineColor="#000099"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[trans_other_hos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="303" y="0" width="33" height="53"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000099"/>
+					<topPen lineWidth="0.5" lineColor="#000099"/>
+					<leftPen lineWidth="0.5" lineColor="#000099"/>
+					<bottomPen lineWidth="0.5" lineColor="#000099"/>
+					<rightPen lineWidth="0.5" lineColor="#000099"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[AMA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="336" y="0" width="33" height="53"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000099"/>
+					<topPen lineWidth="0.5" lineColor="#000099"/>
+					<leftPen lineWidth="0.5" lineColor="#000099"/>
+					<bottomPen lineWidth="0.5" lineColor="#000099"/>
+					<rightPen lineWidth="0.5" lineColor="#000099"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[miss]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="369" y="0" width="33" height="53"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000099"/>
+					<topPen lineWidth="0.5" lineColor="#000099"/>
+					<leftPen lineWidth="0.5" lineColor="#000099"/>
+					<bottomPen lineWidth="0.5" lineColor="#000099"/>
+					<rightPen lineWidth="0.5" lineColor="#000099"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[death]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="402" y="0" width="33" height="53"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000099"/>
+					<topPen lineWidth="0.5" lineColor="#000099"/>
+					<leftPen lineWidth="0.5" lineColor="#000099"/>
+					<bottomPen lineWidth="0.5" lineColor="#000099"/>
+					<rightPen lineWidth="0.5" lineColor="#000099"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[PDT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="435" y="0" width="33" height="53"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000099"/>
+					<topPen lineWidth="0.5" lineColor="#000099"/>
+					<leftPen lineWidth="0.5" lineColor="#000099"/>
+					<bottomPen lineWidth="0.5" lineColor="#000099"/>
+					<rightPen lineWidth="0.5" lineColor="#000099"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[adm]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="468" y="0" width="33" height="53"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000099"/>
+					<topPen lineWidth="0.5" lineColor="#000099"/>
+					<leftPen lineWidth="0.5" lineColor="#000099"/>
+					<bottomPen lineWidth="0.5" lineColor="#000099"/>
+					<rightPen lineWidth="0.5" lineColor="#000099"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[disch]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="501" y="0" width="33" height="53"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000099"/>
+					<topPen lineWidth="0.5" lineColor="#000099"/>
+					<leftPen lineWidth="0.5" lineColor="#000099"/>
+					<bottomPen lineWidth="0.5" lineColor="#000099"/>
+					<rightPen lineWidth="0.5" lineColor="#000099"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[ttal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="0" width="70" height="53"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000099"/>
+					<topPen lineWidth="0.5" lineColor="#000099"/>
+					<leftPen lineWidth="0.5" lineColor="#000099"/>
+					<bottomPen lineWidth="0.5" lineColor="#000099"/>
+					<rightPen lineWidth="0.5" lineColor="#000099"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[w_num]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<rectangle>
+				<reportElement x="2" y="1" width="71" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#CC3300"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="73" y="1" width="33" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#FF0000"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="106" y="1" width="33" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#FF0000"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="139" y="1" width="33" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#FF0000"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="172" y="1" width="33" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#FF0000"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="205" y="1" width="33" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#FF0000"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="238" y="1" width="33" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#FF0000"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="271" y="1" width="33" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#FF0000"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="304" y="1" width="33" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#FF0000"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="337" y="1" width="33" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#FF0000"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="370" y="1" width="33" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#FF0000"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="403" y="1" width="33" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#FF0000"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="436" y="1" width="33" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#FF0000"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="469" y="1" width="33" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#FF0000"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="502" y="1" width="33" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#FF0000"/>
+				</graphicElement>
+			</rectangle>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="73" y="0" width="33" height="20">
+					<printWhenExpression><![CDATA[$F{ANC}!=0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{ANC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="106" y="0" width="33" height="20">
+					<printWhenExpression><![CDATA[$F{PNC}!=0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{PNC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="139" y="0" width="33" height="20">
+					<printWhenExpression><![CDATA[$F{deli}!=0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{deli}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="172" y="0" width="33" height="20">
+					<printWhenExpression><![CDATA[$F{bady}!=0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{bady}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="205" y="0" width="33" height="20">
+					<printWhenExpression><![CDATA[$F{trans_IN}!=0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{trans_IN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="238" y="0" width="33" height="20">
+					<printWhenExpression><![CDATA[$F{trans_OUT}!=0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{trans_OUT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="271" y="0" width="33" height="20">
+					<printWhenExpression><![CDATA[$F{trans_other_hos}!=0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{trans_other_hos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="304" y="0" width="33" height="20">
+					<printWhenExpression><![CDATA[$F{AMA}!=0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{AMA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="337" y="0" width="33" height="20">
+					<printWhenExpression><![CDATA[$F{miss}!=0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{miss}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="0" width="33" height="20">
+					<printWhenExpression><![CDATA[$F{death}!=0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{death}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="403" y="0" width="33" height="20">
+					<printWhenExpression><![CDATA[$F{PDT}!=0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{PDT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="436" y="0" width="33" height="20">
+					<printWhenExpression><![CDATA[$F{adm}!=0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{adm}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="469" y="0" width="33" height="20">
+					<printWhenExpression><![CDATA[$F{disch}!=0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{disch}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="502" y="0" width="33" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{ttal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="0" width="71" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{w_num}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="25" splitType="Stretch">
+			<rectangle>
+				<reportElement x="2" y="5" width="71" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#FF0000"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="72" y="5" width="33" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#FF0000"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="105" y="5" width="33" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#FF0000"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="138" y="5" width="33" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#FF0000"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="171" y="5" width="33" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#FF0000"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="204" y="5" width="33" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#FF0000"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="237" y="5" width="33" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#FF0000"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="270" y="5" width="33" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#FF0000"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="303" y="5" width="33" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#FF0000"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="336" y="5" width="33" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#FF0000"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="369" y="5" width="33" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#FF0000"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="402" y="5" width="33" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#FF0000"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="435" y="5" width="33" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#FF0000"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="468" y="5" width="33" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#FF0000"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="501" y="5" width="33" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dotted" lineColor="#FF0000"/>
+				</graphicElement>
+			</rectangle>
+			<textField pattern="###0" isBlankWhenNull="true">
+				<reportElement x="72" y="4" width="33" height="20">
+					<printWhenExpression><![CDATA[$F{ANC}!=0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{ANC_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="105" y="4" width="33" height="20">
+					<printWhenExpression><![CDATA[$F{PNC}!=0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{PNC_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="138" y="4" width="33" height="20">
+					<printWhenExpression><![CDATA[$F{deli}!=0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{deli_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="171" y="4" width="33" height="20">
+					<printWhenExpression><![CDATA[$F{bady}!=0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{bady_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="204" y="4" width="33" height="20">
+					<printWhenExpression><![CDATA[$F{trans_IN}!=0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{trans_IN_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="237" y="4" width="33" height="20">
+					<printWhenExpression><![CDATA[$F{trans_OUT}!=0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{trans_OUT_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="270" y="4" width="33" height="20">
+					<printWhenExpression><![CDATA[$F{trans_other_hos}!=0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{trans_other_hos_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="303" y="4" width="33" height="20">
+					<printWhenExpression><![CDATA[$F{AMA}!=0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{AMA_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="336" y="4" width="33" height="20">
+					<printWhenExpression><![CDATA[$F{miss}!=0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{miss_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="369" y="4" width="33" height="20">
+					<printWhenExpression><![CDATA[$F{death}!=0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{death_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="402" y="4" width="33" height="20">
+					<printWhenExpression><![CDATA[$F{PDT}!=0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{PDT_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="435" y="4" width="33" height="20">
+					<printWhenExpression><![CDATA[$F{adm}!=0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{adm_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="468" y="4" width="33" height="20">
+					<printWhenExpression><![CDATA[$F{disch}!=0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{disch_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="501" y="4" width="33" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{ttal_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="4" y="4" width="68" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA["Grand Total"]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="IMMR_100_R09_AdmissionSummary" pageWidth="302" pageHeight="216" columnWidth="302" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     admission_types.`adm_code` AS admission_types_adm_code,
+     admission_types.`type` AS admission_types_type,
+     immr_admission.`admission_Count` AS immr_admission_admission_Count,
+     immr_admission.`admission_Last` AS immr_admission_admission_Last,
+     immr_admission.`admission_First` AS immr_admission_admission_First,
+     immr_admission.`AdmYear` AS immr_admission_AdmYear,
+     immr_admission.`AdmQuarter` AS immr_admission_AdmQuarter
+FROM
+     `immr_admission` immr_admission RIGHT OUTER JOIN `admission_types` admission_types ON immr_admission.`admission_types_adm_code` = admission_types.`adm_code`]]>
+	</queryString>
+	<field name="admission_types_adm_code" class="java.lang.Long"/>
+	<field name="admission_types_type" class="java.lang.String"/>
+	<field name="immr_admission_admission_Count" class="java.lang.Long"/>
+	<field name="immr_admission_admission_Last" class="java.lang.String"/>
+	<field name="immr_admission_admission_First" class="java.lang.String"/>
+	<field name="immr_admission_AdmYear" class="java.lang.Integer"/>
+	<field name="immr_admission_AdmQuarter" class="java.lang.Integer"/>
+	<variable name="admission_Count_1" class="java.lang.Long" calculation="Sum">
+		<variableExpression><![CDATA[$F{immr_admission_admission_Count}]]></variableExpression>
+	</variable>
+	<variable name="y" class="java.lang.Integer" calculation="Highest">
+		<variableExpression><![CDATA[$F{immr_admission_AdmYear}]]></variableExpression>
+	</variable>
+	<variable name="q" class="java.lang.Integer" calculation="Highest">
+		<variableExpression><![CDATA[$F{immr_admission_AdmQuarter}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="39" splitType="Stretch">
+			<staticText>
+				<reportElement x="169" y="2" width="69" height="37"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[First BHT Number
+of the quarter(ii)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="2" width="69" height="37"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[Last BHT Number
+of the quarter(i)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="238" y="2" width="54" height="37"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[(i) - (ii)]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="2" width="99" height="37"/>
+			</rectangle>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="99" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{admission_types_type}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="100" y="0" width="69" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{immr_admission_admission_Last}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="169" y="0" width="69" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{immr_admission_admission_First}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="238" y="0" width="54" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Long"><![CDATA[$F{immr_admission_admission_Count}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<summary>
+		<band height="59" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="39" width="100" height="20"/>
+				<textElement>
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Year    " +$V{y}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="39" width="192" height="20"/>
+				<textElement>
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Quarter     "+$V{q}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="238" y="0" width="54" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Long"><![CDATA[$V{admission_Count_1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="99" height="20"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[Total Admissions]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="100" y="0" width="69" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="169" y="0" width="69" height="20"/>
+			</rectangle>
+		</band>
+	</summary>
+</jasperReport>

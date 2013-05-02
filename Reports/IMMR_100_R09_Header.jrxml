@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="IMMR_100_R09_Header" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="734" leftMargin="54" rightMargin="54" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F8F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFBFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="year" class="java.lang.Integer"/>
+	<parameter name="quarter" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT
+
+     deptinfo.`DEPNAME` AS deptinfo_DEPNAME,
+     deptinfo.`DISTRICT` AS deptinfo_DISTRICT,
+     deptinfo.`AGADIV` AS deptinfo_AGADIV,
+     deptinfo.`CONTACT` AS deptinfo_CONTACT
+FROM
+     `deptinfo` deptinfo]]>
+	</queryString>
+	<field name="deptinfo_DEPNAME" class="java.lang.String"/>
+	<field name="deptinfo_DISTRICT" class="java.lang.String"/>
+	<field name="deptinfo_AGADIV" class="java.lang.String"/>
+	<field name="deptinfo_CONTACT" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="472" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="20" width="728" height="29"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORT ON INDOOR MORBIDITY AND MORTALITY IN HOSPITALS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="628" y="0" width="100" height="20"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[IMMR/100/R09]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="50" width="168" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Name of Institutuon :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="68" width="168" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[DPDHS(RDHS) Division :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="86" width="168" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Divisional Secretary Division :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="511" y="50" width="117" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Telephone Number :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="511" y="68" width="117" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Year :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="511" y="86" width="117" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Quarter :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="634" y="50" width="100" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{deptinfo_CONTACT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="634" y="68" width="100" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$P{year}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="634" y="86" width="100" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$P{quarter}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="171" y="50" width="340" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{deptinfo_DEPNAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="171" y="68" width="340" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{deptinfo_DISTRICT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="171" y="86" width="340" height="16"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{deptinfo_AGADIV}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="103" width="734" height="1"/>
+			</line>
+			<line>
+				<reportElement x="0" y="238" width="734" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="8" y="107" width="85" height="20"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Importatnt :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="8" y="127" width="279" height="20"/>
+				<textElement/>
+				<text><![CDATA[Institutuons Under Line MInistry : Complete two copies]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="8" y="168" width="279" height="20"/>
+				<textElement/>
+				<text><![CDATA[          Institutuons Under DPDHS : Complete two copies]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="163" y="147" width="218" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA["1. Retain one copy as office copy\n2. Forward one copy to Medical Statistics Unit"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="163" y="189" width="301" height="42" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA["1. Retain one copy as office copy\n2. Forward one copy to Medical Statistics Unit through DPDHS/RDHS"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="470" y="120" width="258" height="111" isPrintWhenDetailOverflows="true"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA["N.B. : Request for new Indoor morbidity and Mortality Register should be made to\n\tDirector\n\tMedical Statistics Unit\n\t'Suwasiripaya',Ministry of Health\n\t385, Rev. Baddegama Wimalawansa Thero MW,\n\tColombo 10.\n\tTelephone : 011-2655734\n\tE mail : medicalstatisticsunit@gmail.com"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="103" width="1" height="135"/>
+			</line>
+			<line>
+				<reportElement x="733" y="103" width="1" height="135"/>
+			</line>
+			<image scaleImage="FillFrame">
+				<reportElement positionType="Float" mode="Transparent" x="0" y="238" width="733" height="234"/>
+				<imageExpression class="java.lang.String"><![CDATA["C:\\Users\\wan\\Documents\\NetBeansProjects\\immr\\Reports\\IMMR_100_R09_Header2.GIF"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageFooter>
+		<band height="49" splitType="Stretch">
+			<staticText>
+				<reportElement x="571" y="0" width="162" height="18"/>
+				<textElement/>
+				<text><![CDATA[Revised in October 2009]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

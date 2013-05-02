@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="IMMR_100_R09_FinalNote" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="807" leftMargin="14" rightMargin="21" topMargin="36" bottomMargin="36">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     deptinfo.`DEPNAME` AS deptinfo_DEPNAME,
+     deptinfo.`DEPCODE` AS deptinfo_DEPCODE,
+     deptinfo.`ADDRESS1` AS deptinfo_ADDRESS1,
+     deptinfo.`ADDRESS2` AS deptinfo_ADDRESS2,
+     deptinfo.`DISTRICT` AS deptinfo_DISTRICT,
+     deptinfo.`AGADIV` AS deptinfo_AGADIV,
+     deptinfo.`MOHDIV` AS deptinfo_MOHDIV,
+     deptinfo.`HEADOFNAME` AS deptinfo_HEADOFNAME,
+     deptinfo.`DESIGNATION` AS deptinfo_DESIGNATION,
+     deptinfo.`CONTACT` AS deptinfo_CONTACT
+FROM
+     `deptinfo` deptinfo]]>
+	</queryString>
+	<field name="deptinfo_DEPNAME" class="java.lang.String"/>
+	<field name="deptinfo_DEPCODE" class="java.lang.String"/>
+	<field name="deptinfo_ADDRESS1" class="java.lang.String"/>
+	<field name="deptinfo_ADDRESS2" class="java.lang.String"/>
+	<field name="deptinfo_DISTRICT" class="java.lang.String"/>
+	<field name="deptinfo_AGADIV" class="java.lang.String"/>
+	<field name="deptinfo_MOHDIV" class="java.lang.String"/>
+	<field name="deptinfo_HEADOFNAME" class="java.lang.String"/>
+	<field name="deptinfo_DESIGNATION" class="java.lang.String"/>
+	<field name="deptinfo_CONTACT" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="446" splitType="Prevent">
+			<staticText>
+				<reportElement positionType="Float" x="3" y="0" width="35" height="20"/>
+				<textElement/>
+				<text><![CDATA[Note :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="38" y="0" width="359" height="32"/>
+				<textElement/>
+				<text><![CDATA[Figures given in columns 8,16,24 and 32 of all the pages
+should be equal to the sum of the respective sub groups]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="3" y="37" width="74" height="20"/>
+				<textElement/>
+				<text><![CDATA[That is ,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="38" y="57" width="359" height="62"/>
+				<textElement/>
+				<text><![CDATA[Column 8 = Sum(Columns No. 1,2,3,4,5,6 and 7)
+Column 16 = Sum(Columns No.9,10,11,12,13,14 and 15)
+Column 24 = Sum(Columns No.17.18.19.20.21.22 and 23)
+Column 32 = Sum(Columns No.25,26,27,28,29,30 and 31)
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="3" y="142" width="394" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Very Important : Check these equations in the summary before Certifying]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="38" y="162" width="359" height="166"/>
+				<textElement textAlignment="Justified">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA["A" should be equal to the Midnight total of last day of the previous quarter
+"B" should be equal to new admissions on the Admissions Register
+
+"C" must exclude the transfers ("D")
+(C + D) should equal to total live discharges
+(C + D) = ( General Total of Column 8 + General Total of Column 16 )
+
+"F" must include deaths within 48 hours ("E")
+( F ) = ( Grand Total of Column 24 + Grand Total of Column 32 )
+
+Total inputs should be equal to the total output
+( A + B ) = ( C + D + F + G + H )
+
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="38" y="366" width="454" height="59"/>
+				<textElement textAlignment="Justified">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[(Difference of the last BHT No of the quarter & First  BHT No of the quarter ) + 1 , is equal to "B"
+Total patient days arrived by adding the daily count of all patients resident in the hospital during the quarter
+(Sum of midnight totals of the quarter)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="465" y="0" width="298" height="119"/>
+				<textElement textAlignment="Justified">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Please be very careful, where you report the following notificable
+diseases to IMMR. There are also reported in the Epidemiological
+unit quarterly and difference can be seen between reported figures in
+Epidemiological unit and IMMR. According to the Epidemiological
+reports, there are not reported cases for Colera and Accute
+Poliomilities fro last few years; but IMMR shows cases for these
+two categories.
+
+Strictly noted, to report correct figures in IMMR.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="495" y="166" width="19" height="273"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="514" y="166" width="249" height="273"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<text><![CDATA[Colera
+Pleague
+Yellow Fever
+Accute Poliomyelities/Accute Flaccid Paralysis
+Chicken Pox
+Dengue Fever/Dengue Haemorrhagic Fever
+Diphtheria
+Dysentry
+Ensephalitis
+Entric Fever
+Food Poisoning
+Human Rabies
+Leptospirosis
+Malaria
+Measles
+Meningitis
+Mumps
+Rubella/Congenital Rubella
+Simple Continued Fever of seven days or more
+Tetanus/Neonatal Tetanus
+Typhus Fever
+Viral Hepatitis
+Whooping Cough
+Severe Accute Respiratory Syndrome (SARS)/Suspected for SARS
+Tuberculosis
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="495" y="152" width="268" height="14"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[List of Nortificable Diseases]]></text>
+			</staticText>
+		</band>
+	</title>
+</jasperReport>
